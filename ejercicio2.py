@@ -9,4 +9,3 @@ class libro:
 
 
 libro_1 = libro("Donde te has ido mujer", "P. Elegante", 16)
-libro_1.mostrar_informaciones()
