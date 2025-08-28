@@ -1,11 +1,32 @@
-class Libro:
-    def __init__(self, titulo, autor, precio):
-        self.titulo = titulo
-        self.autor = autor
-        self.precio = precio
+class Personaje:
+    def __init__(self, nombre, nivel):
+        self.nombre = nombre
+        self.nivel = nivel
 
-    def mostrar_informaciones(self):
-        print(f"El libro titulado '{self.titulo}', escrito por la autora '{self.autor}', se vende a {self.precio} euros.")
+    def atacar(self):
+        print(self.nombre, "ataca con fuerza.")
 
-libro_1 = Libro("100 Ejercicios Python para practicar", "Laurentine K.Masson", 9.99)
-libro_1.mostrar_informaciones()
+class Jugador(Personaje):
+    def __init__(self, nombre, nivel, clase):
+        Personaje.__init__(self, nombre, nivel)
+        self.clase = clase
+
+    def usarHabilidadEspecial(self):
+        print(self.nombre, "usa su habilidad especial de", self.clase)
+
+class Enemigo(Personaje):
+    def __init__(self, nombre, nivel, tipo):
+        Personaje.__init__(self, nombre, nivel)
+        self.tipo = tipo
+
+    def gritar(self):
+        print(self.nombre, "el", self.tipo, "del fuego", "Hace la novena postura")
+
+
+jug = Jugador("Gyutaru", 10, "Demonio")
+ene = Enemigo("Rengoku", 8, "Pilar")
+
+jug.atacar()
+jug.usarHabilidadEspecial()
+ene.atacar()
+ene.gritar()
